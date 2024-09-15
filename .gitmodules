@@ -2,3 +2,4 @@
 	path = vendored/SDL
 	url = https://github.com/libsdl-org/SDL
 	active = true
+	branch = main
