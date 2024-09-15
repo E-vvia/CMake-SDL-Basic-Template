@@ -4,6 +4,7 @@ add_library(${PROJECT_NAME} SHARED)
 
 include(GenerateExportHeader)
 
+target_link_libraries(${PROJECT_NAME} PUBLIC SDL3::SDL3)        
 
 target_sources(${PROJECT_NAME}
     PRIVATE
