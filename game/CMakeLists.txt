@@ -2,7 +2,7 @@
 
 add_executable (${PROJECT_NAME} "main.cpp" )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3 Engine)
+target_link_libraries(${PROJECT_NAME} Engine)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
