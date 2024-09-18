@@ -10,15 +10,13 @@ endif()
 
 
 if(WIN32)
-    add_custom_command(
-        TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND "${CMAKE_COMMAND}" -E copy $<TARGET_FILE:SDL3::SDL3-shared> $<TARGET_FILE_DIR:${PROJECT_NAME}>
-        VERBATIM
-    )
+      set_target_properties(SDL3-shared PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG $<TARGET_FILE_DIR:${PROJECT_NAME}>
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE $<TARGET_FILE_DIR:${PROJECT_NAME}>
+      )
 
-      add_custom_command(
-        TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND "${CMAKE_COMMAND}" -E copy $<TARGET_FILE:Engine> $<TARGET_FILE_DIR:${PROJECT_NAME}>
-        VERBATIM
-    )
+      set_target_properties(ZEngine PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG $<TARGET_FILE_DIR:${PROJECT_NAME}>
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE $<TARGET_FILE_DIR:${PROJECT_NAME}>
+      )
 endif()
